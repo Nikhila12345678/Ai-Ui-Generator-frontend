@@ -106,6 +106,7 @@ let cleanedCode = code
   .replace(/```\n?/g, '')
   .replace(/import\s+{[^}]+}\s+from\s+['"][^'"]+['"];?\n?/g, '') // Remove import statements
   .replace(/import\s+React\s+from\s+['"]react['"];?\n?/g, '') // Remove React imports
+  .replace(/export\s+default\s+\w+;?\n?/g, '')
   .trim();
 
     return `
