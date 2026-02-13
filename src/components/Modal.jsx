@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Modal({ title, children, onClose, isOpen }) {
+export default function Modal({ title, children, onClose, isOpen = true }) {
   if (!isOpen) return null;
 
-  const overlayStyle = {
+  const backdropStyle = {
     position: 'fixed',
     top: 0,
     left: 0,
@@ -22,9 +22,7 @@ export function Modal({ title, children, onClose, isOpen }) {
     padding: '24px',
     maxWidth: '500px',
     width: '90%',
-    maxHeight: '80vh',
-    overflow: 'auto',
-    position: 'relative',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
   };
 
   const headerStyle = {
@@ -36,8 +34,8 @@ export function Modal({ title, children, onClose, isOpen }) {
 
   const titleStyle = {
     fontSize: '20px',
-    fontWeight: '700',
-    color: '#1f2937',
+    fontWeight: '600',
+    margin: 0,
   };
 
   const closeButtonStyle = {
@@ -46,19 +44,14 @@ export function Modal({ title, children, onClose, isOpen }) {
     fontSize: '24px',
     cursor: 'pointer',
     color: '#6b7280',
-    padding: '0',
-    width: '30px',
-    height: '30px',
   };
 
   return (
-    <div style={overlayStyle} onClick={onClose}>
+    <div style={backdropStyle} onClick={onClose}>
       <div style={modalStyle} onClick={(e) => e.stopPropagation()}>
         <div style={headerStyle}>
-          <div style={titleStyle}>{title}</div>
-          <button style={closeButtonStyle} onClick={onClose}>
-            ×
-          </button>
+          {title && <h3 style={titleStyle}>{title}</h3>}
+          <button onClick={onClose} style={closeButtonStyle}>×</button>
         </div>
         {children}
       </div>

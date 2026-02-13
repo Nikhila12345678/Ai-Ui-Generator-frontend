@@ -1,25 +1,33 @@
 import React from 'react';
 
-export function Input({ placeholder, value, onChange, type = 'text', label }) {
+export default function Input({ 
+  placeholder, 
+  value, 
+  onChange, 
+  type = 'text', 
+  label 
+}) {
   const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '6px',
+    marginBottom: '16px',
   };
 
   const labelStyle = {
+    display: 'block',
+    marginBottom: '6px',
     fontSize: '14px',
-    fontWeight: '600',
+    fontWeight: '500',
     color: '#374151',
   };
 
   const inputStyle = {
+    width: '100%',
     padding: '10px 12px',
-    fontSize: '14px',
     border: '1px solid #d1d5db',
     borderRadius: '6px',
+    fontSize: '14px',
     outline: 'none',
     transition: 'border-color 0.2s',
+    boxSizing: 'border-box',
   };
 
   return (
@@ -29,10 +37,10 @@ export function Input({ placeholder, value, onChange, type = 'text', label }) {
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        onChange={(e) => onChange && onChange(e.target.value)}
         style={inputStyle}
-        onFocus={(e) => (e.target.style.borderColor = '#3b82f6')}
-        onBlur={(e) => (e.target.style.borderColor = '#d1d5db')}
+        onFocus={(e) => e.target.style.borderColor = '#3b82f6'}
+        onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
       />
     </div>
   );
