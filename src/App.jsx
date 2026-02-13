@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = ' https://ai-ui-generator-backend-3.onrender.com';
 
 export default function App() {
   const [message, setMessage] = useState('');
