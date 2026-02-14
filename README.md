@@ -3,7 +3,7 @@
 AI UI Generator is a web application that allows users to describe a UI in natural language and instantly generate UI code with a live preview. This frontend provides an interactive interface to send prompts to the backend and visualize the generated components.
 
 ## 🌐 Live Demo
-https://ai-ui-generator-frontend-nb89r0apk-nikhilas-projects-82a038e2.vercel.app
+https://ai-ui-generator-frontend.vercel.app
 
 ## 🔗 Backend API
 https://ai-ui-generator-backend-3.onrender.com
